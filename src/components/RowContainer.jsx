@@ -1,41 +1,73 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { motion } from "framer-motion";
+import NotFound from "../assets/img/NotFound.svg";
 
-const RowContainer = ({ flag }) => {
+const RowContainer = ({ flag, data, scrollValue }) => {
+	const rowContainer = useRef();
+
+	useEffect(() => {
+		rowContainer.current.scrollLeft += scrollValue;
+	}, [scrollValue]);
+
 	return (
 		<div
-			className={`w-full my-12  ${
-				flag ? "overflow-x-scroll" : "overflow-x-hidden"
+			ref={rowContainer}
+			className={`w-full flex items-center gap-3  my-12 scroll-smooth  ${
+				flag
+					? "overflow-x-scroll scrollbar-none"
+					: "overflow-x-hidden flex-wrap justify-center"
 			}`}
 		>
-			<div className=" w-300 md:w-340 h-auto my-12 bg-cardOverlay rounded-lg p-2 backdrop-blur-lg hover:drop-shadow-md">
-				<div className="w-full flex items-center justify-between">
-					<motion.img
-						whileHover={{ scale: 1.2 }}
-						src="https://firebasestorage.googleapis.com/v0/b/food-delivery-2ca26.appspot.com/o/Images%2F1681417920458-f10.png?alt=media&token=c2f107a5-90d7-424b-953e-199a48683ae8"
-						alt=""
-						className="w-40 -mt-8 drop-shadow-2xl"
-					/>
-					<motion.div
-						whileTap={{ scale: 0.75 }}
-						className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center cursor-pointer hover:shadow-md"
+			{data && data.length > 0 ? (
+				data.map((item) => (
+					<div
+						key={item?.id}
+						className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
 					>
-						<RiShoppingBasketLine className="text-white" />
-					</motion.div>
-				</div>
-				<div className="w-full flex flex-col items-end justify-end">
-					<p className="text-textColor font-semibold text-base md:text-lg">
-						Watermelon
-					</p>
-					<p className="mt-1 text-sm text-gray-500">45 calories</p>
-					<div className="flex items-center gap-8">
-						<p className="text-lg text-headingColor font-semibold">
-							<span className="text-sm text-red-500">$</span> 5.25
-						</p>
+						<div className="w-full flex items-center justify-between">
+							<motion.div
+								className="w-40 h-40 -mt-8 drop-shadow-2xl"
+								whileHover={{ scale: 1.2 }}
+							>
+								<img
+									src={item?.imageURL}
+									alt=""
+									className="w-full h-full object-contain"
+								/>
+							</motion.div>
+							<motion.div
+								whileTap={{ scale: 0.75 }}
+								className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center cursor-pointer hover:shadow-md -mt-8"
+								onClick={() => setItems([...cartItems, item])}
+							>
+								<RiShoppingBasketLine className="text-white" />
+							</motion.div>
+						</div>
+
+						<div className="w-full flex flex-col items-end justify-end -mt-8">
+							<p className="text-textColor font-semibold text-base md:text-lg">
+								{item?.title}
+							</p>
+							<p className="mt-1 text-sm text-gray-500">
+								{item?.calories} Calories
+							</p>
+							<div className="flex items-center gap-8">
+								<p className="text-lg text-headingColor font-semibold">
+									<span className="text-sm text-red-500">$</span> {item?.price}
+								</p>
+							</div>
+						</div>
 					</div>
+				))
+			) : (
+				<div className="w-full flex flex-col items-center justify-center">
+					<img src={NotFound} className="h-340" />
+					<p className="text-xl text-headingColor font-semibold my-2">
+						Items Not Available
+					</p>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 };
