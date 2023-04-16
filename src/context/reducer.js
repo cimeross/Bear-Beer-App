@@ -18,6 +18,17 @@ const reducer = (state, action) => {
 				...state,
 				foodItems: action.foodItems,
 			};
+		case actionType.SET_CART_SHOW:
+			return {
+				...state,
+				cartShow: action.cartShow,
+			};
+
+		case actionType.SET_CARTITEMS:
+			return {
+				...state,
+				cartItems: action.cartItems,
+			};
 
 		default:
 			return state;
