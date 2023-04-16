@@ -1,10 +1,28 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import NotFound from "../assets/img/NotFound.svg";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
 	const rowContainer = useRef();
+
+	const [items, setItems] = useState([]);
+
+	const [{ cartItems }, dispatch] = useStateValue();
+
+	const addToCart = (item) => {
+		const alreadyInCart = cartItems.some((cartItem) => cartItem.id === item.id);
+		if (!alreadyInCart) {
+			setItems([...items, item]);
+			dispatch({
+				type: actionType.SET_CARTITEMS,
+				cartItems: [...cartItems, item],
+			});
+			localStorage.setItem("cartItems", JSON.stringify([...cartItems, item]));
+		}
+	};
 
 	useEffect(() => {
 		rowContainer.current.scrollLeft += scrollValue;
@@ -39,7 +57,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
 							<motion.div
 								whileTap={{ scale: 0.75 }}
 								className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center cursor-pointer hover:shadow-md -mt-8"
-								onClick={() => setItems([...cartItems, item])}
+								onClick={() => addToCart(item)}
 							>
 								<RiShoppingBasketLine className="text-white" />
 							</motion.div>
