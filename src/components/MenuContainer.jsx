@@ -15,7 +15,7 @@ const MenuContainer = () => {
 				<p className="text-2xl text-headingColor font-semibold capitalize relative before:absolute before:rounded-lg before:content before:w-16 before:h-1 before:-bottom-2 before:left- before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100 mr-auto">
 					Our Hot Dishes
 				</p>
-				<div className="w-full flex items-center justify-start lg:justify-center  gap-8 py-6 overflow-x-scroll scrollbar-none">
+				<div className="w-full flex items-center justify-start lg:justify-center  gap-8 py-6 overflow-x-scroll    lg:scrollbar-none">
 					{categories &&
 						categories.map((category) => (
 							<motion.div
@@ -23,7 +23,7 @@ const MenuContainer = () => {
 								key={category.id}
 								className={`group ${
 									filter === category.urlParamName ? "bg-cartNumBg" : "bg-card"
-								} w-24 min-w-[24px] h-28 cursor-pointer hover:bg-red-600 rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center `}
+								} w-24 min-w-[30%] md:min-w-[15%]  lg:min-w-[5%]  h-28  cursor-pointer hover:bg-red-600 rounded-lg drop-shadow-xl flex flex-col gap-3 items-center justify-center `}
 								onClick={() => setfilter(category.urlParamName)}
 							>
 								<div
@@ -42,7 +42,7 @@ const MenuContainer = () => {
 									/>
 								</div>
 								<p
-									className={`text-sm ${
+									className={`text-sm  ${
 										filter === category.urlParamName
 											? "text-white"
 											: "text-textColor"
