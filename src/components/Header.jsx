@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../assets/img/logo.png";
+import LogoBear from "../assets/img/logo-bea.png";
 import Avatar from "../assets/img/avatar.png";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { MdAdd, MdLogout } from "react-icons/md";
@@ -55,8 +56,10 @@ const Header = () => {
 			{/* Desktop & tablet */}
 			<div className=" hidden md:flex w-full items-center justify-between">
 				<Link to="/" className="flex items-center gap-2">
-					<img src={Logo} className="w-8 object-cover" alt="logo" />
-					<p className="text-headingColor text-xl font-bold ">City</p>
+					<img src={LogoBear} className="w-16 object-cover" alt="logo" />
+					<p className="text-headingColor text-2xl font-bold ">
+						Bear <span className="text-textDarkOrange">Beer</span>
+					</p>
 				</Link>
 				<div className="flex items-center gap-8">
 					<motion.ul
@@ -65,18 +68,30 @@ const Header = () => {
 						exit={{ opacity: 0, x: 200 }}
 						className="flex items-center gap-8 "
 					>
-						<li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-out cursor-pointer">
+						<Link
+							to="/home"
+							className="text-base text-headingColor font-medium hover:text-textDarkOrange uppercase duration-100 transition-all ease-out cursor-pointer"
+						>
 							Home
-						</li>
-						<li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-out cursor-pointer">
+						</Link>
+						<Link
+							to="/menu"
+							className="text-base text-headingColor font-medium hover:text-textDarkOrange uppercase duration-100 transition-all ease-out cursor-pointer"
+						>
 							Menu
-						</li>
-						<li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-out cursor-pointer">
+						</Link>
+						<Link
+							to="/about"
+							className="text-base text-headingColor font-medium hover:text-textDarkOrange uppercase duration-100 transition-all ease-out cursor-pointer"
+						>
 							About Us
-						</li>
-						<li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-out cursor-pointer">
+						</Link>
+						<Link
+							to="/service"
+							className="text-base text-headingColor font-medium hover:text-textDarkOrange uppercase duration-100 transition-all ease-out cursor-pointer"
+						>
 							Service
-						</li>
+						</Link>
 					</motion.ul>
 					<div
 						className="relative flex items-center justify-center"
@@ -145,7 +160,7 @@ const Header = () => {
 					)}
 				</div>
 				<Link to="/" className="flex items-center gap-2">
-					<img src={Logo} className="w-8 object-cover" alt="logo" />
+					<img src={LogoBear} className="w-8 object-cover" alt="logo" />
 					<p className="text-headingColor text-xl font-bold ">City</p>
 				</Link>
 

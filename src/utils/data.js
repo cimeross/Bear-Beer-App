@@ -1,35 +1,35 @@
-import I1 from "../assets/img/i1.png";
-import F1 from "../assets/img/f1.png";
-import C3 from "../assets/img/c3.png";
-import FI1 from "../assets/img/fi1.png";
+import I1 from "../assets/img/carlsberg.png";
+import F1 from "../assets/img/budweiser-d.png";
+import C3 from "../assets/img/amstel.png";
+import FI1 from "../assets/img/bavaria.png";
 
 export const foodData = [
 	{
 		id: 1,
-		name: "Icecream",
-		desc: "Chocolate & Vanilla",
-		price: "5.25",
+		name: "Carlsberg",
+		desc: "Pilsner",
+		price: "1.25",
 		image: I1,
 	},
 	{
 		id: 2,
-		name: "Strawberries",
-		desc: "Fresh Strawberries",
-		price: "10.25",
+		name: "Budweiser",
+		desc: "Dark",
+		price: "1.05",
 		image: F1,
 	},
 	{
 		id: 3,
-		name: "Chicken Kebab",
-		desc: "Mixed Kebab Plate",
-		price: "8.25",
+		name: "Amstel",
+		desc: "Pilsner",
+		price: "0.95",
 		image: C3,
 	},
 	{
 		id: 4,
-		name: "Fish Kebab",
-		desc: "Mixed Fish Kebab",
-		price: "5.25",
+		name: "Bavaria",
+		desc: "Lager",
+		price: "1.20",
 		image: FI1,
 	},
 ];

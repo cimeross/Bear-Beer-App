@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { Header, MainContainer, CreateContainer } from "./components";
+import {
+	Header,
+	MainContainer,
+	CreateContainer,
+	AboutUs,
+	Service,
+	MenuContainer,
+} from "./components";
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useStateValue } from "./context/StateProvider";
@@ -29,6 +36,9 @@ const App = () => {
 					<Routes>
 						<Route path="/*" element={<MainContainer />} />
 						<Route path="/createItem" element={<CreateContainer />} />
+						<Route path="/menu" element={<MenuContainer />} />
+						<Route path="/about" element={<AboutUs />} />
+						<Route path="/service" element={<Service />} />
 					</Routes>
 				</main>
 			</div>

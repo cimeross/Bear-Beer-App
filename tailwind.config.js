@@ -46,7 +46,9 @@ export default {
 				"2xl": "1536px",
 			},
 			colors: {
-				headingColor: "#2e2e2e",
+				headingColor: "#342404",
+				textDarkOrange: "#ce5e04",
+				textLightOrange: "#f46f04",
 				textColor: "#515151",
 				cartNumBg: "#e80013",
 				primary: "#f5f3f3",
