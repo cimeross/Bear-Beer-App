@@ -6,6 +6,7 @@ export default {
 			width: {
 				150: "150px",
 				190: "190px",
+				220: "220px",
 				225: "225px",
 				275: "275px",
 				300: "300px",
@@ -55,8 +56,9 @@ export default {
 				cartBg: "#282a2c",
 				cartItem: "#2e3033",
 				cartTotal: "#343739",
+				rowBg: "rgba(255, 131, 0, 0.05)",
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require("tailwind-scrollbar")],
 };

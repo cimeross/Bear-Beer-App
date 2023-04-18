@@ -5,7 +5,7 @@ import { foodData } from "../utils/data";
 
 const HomeContainer = () => {
 	return (
-		<section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full" id="home">
+		<section className="grid grid-cols-1 md:grid-cols-2 gap-1 w-full" id="home">
 			<div className="flex flex-col items-start justify-start  flex-1 py-2 gap-6">
 				<div className="flex items-center gap-2 justify-center bg-orange-100 px-4 py-1 rounded-full">
 					<p className="text-base text-orange-500 font-semibold">
@@ -44,17 +44,17 @@ const HomeContainer = () => {
 					className="ml-auto w-full lg:w-auto h-420 lg:h-650"
 					alt="heroBg"
 				/>
-				<div className="w-full h-full absolute flex flex-wrap items-center justify-center left-0 top-0 lg:px-32  py-4 gap-4 drop-shadow-lg">
+				<div className="w-full h-full absolute flex flex-wrap items-center justify-center left-0 top-0   py-4 gap-6 drop-shadow-lg">
 					{foodData &&
 						foodData.map((e) => (
 							<div
 								key={e.id}
-								className="lg:w-190 flex flex-col items-center justify-center  p-2 bg-cardOverlay backdrop-blur-md rounded-3xl"
+								className="2xl:w-275 xl:w-220 flex flex-col  items-center justify-center  p-2 bg-cardOverlay backdrop-blur-md rounded-3xl"
 							>
 								<img
 									src={e.image}
 									alt="icecream"
-									className="w-20 lg:w-40 -mt-10 lg:-mt-20"
+									className="w-20 xl:w-40 lg:w-32 -mt-10 lg:-mt-30"
 								/>
 								<p className="text-base lg:text-xl font-semibold text-textColor mt-2 lg:mt-4">
 									{e.name}
