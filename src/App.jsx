@@ -10,16 +10,16 @@ import {
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useStateValue } from "./context/StateProvider";
-import { getAllFoodItems } from "./utils/firebaeFunctions";
+import { getAllBeerItems } from "./utils/firebaeFunctions";
 import { actionType } from "./context/reducer";
 
 const App = () => {
-	const [{ foodItems }, dispatch] = useStateValue();
+	const [{ beerItems }, dispatch] = useStateValue();
 	const fetchData = async () => {
-		await getAllFoodItems().then((data) => {
+		await getAllBeerItems().then((data) => {
 			dispatch({
-				type: actionType.SET_FOOD_ITEMS,
-				foodItems: data,
+				type: actionType.SET_BEER_ITEMS,
+				beerItems: data,
 			});
 		});
 	};

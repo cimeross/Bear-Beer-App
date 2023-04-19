@@ -1,7 +1,7 @@
 import React from "react";
-import Delivery from "../assets/img/delivery-truck.png";
-import HeroBg from "../assets/img/background.png";
-import { foodData } from "../utils/data";
+import Delivery from "../assets/images/delivery-truck.png";
+import HomeBg from "../assets/images/background.png";
+import { beerData } from "../utils/data";
 
 const HomeContainer = () => {
 	return (
@@ -41,13 +41,13 @@ const HomeContainer = () => {
 			</div>
 			<div className="flex-1 py-2 flex items-center relative">
 				<img
-					src={HeroBg}
+					src={HomeBg}
 					className="ml-auto w-full lg:w-auto h-420 lg:h-650 rounded-2xl"
 					alt="heroBg"
 				/>
 				<div className="w-full h-full absolute flex flex-wrap items-center justify-center left-0 top-0   py-4 gap-6 drop-shadow-lg">
-					{foodData &&
-						foodData.map((e) => (
+					{beerData &&
+						beerData.map((e) => (
 							<div
 								key={e.id}
 								className="2xl:w-275 xl:w-220 flex flex-col  items-center justify-center  p-2 bg-cardOverlay backdrop-blur-md rounded-3xl"

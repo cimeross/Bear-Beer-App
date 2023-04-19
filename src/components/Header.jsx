@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Logo from "../assets/img/logo.png";
-import LogoBear from "../assets/img/logo-bea.png";
-import Avatar from "../assets/img/avatar.png";
+import LogoBear from "../assets/images/logo-bear.png";
+import Avatar from "../assets/images/avatar.png";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";

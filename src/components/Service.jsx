@@ -1,5 +1,5 @@
 import React from "react";
-import Delivery from "../assets/img/delivery-truck.png";
+import Delivery from "../assets/images/delivery-truck.png";
 
 const Service = () => {
 	return (
