@@ -8,7 +8,7 @@ import MenuContainer from "./MenuContainer";
 import CartContainer from "./CartContainer";
 
 const MainContainer = () => {
-	const [{ foodItems, cartShow }, dispatch] = useStateValue();
+	const [{ beerItems, cartShow }, dispatch] = useStateValue();
 
 	const [scrollValue, setScrollValue] = useState(0);
 
@@ -42,7 +42,7 @@ const MainContainer = () => {
 				<RawContainer
 					scrollValue={scrollValue}
 					flag={true}
-					data={foodItems?.filter((e) => e.category === "fruits")}
+					data={beerItems?.filter((e) => e.category === "dark")}
 				/>
 			</section>
 
