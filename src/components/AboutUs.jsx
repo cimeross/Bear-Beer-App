@@ -1,7 +1,10 @@
 import React from "react";
 import About from "../assets/images/background-aboutUs.png";
+import { useStateValue } from "../context/StateProvider";
+import CartContainer from "./CartContainer";
 
 const AboutUs = () => {
+	const [{ cartShow }, dispatch] = useStateValue();
 	return (
 		<div className="flex flex-col  w-full h-screen" id="about">
 			<div>
@@ -27,6 +30,7 @@ const AboutUs = () => {
 			<div className="w-full flex justify-center items-center">
 				<img className="" src={About} alt="" />
 			</div>
+			{cartShow && <CartContainer />}
 		</div>
 	);
 };

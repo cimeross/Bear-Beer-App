@@ -6,11 +6,16 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 import EmptyCart from "../assets/images/emptyCart-beer.png";
 import CartItem from "./CartItem";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { app } from "../../firebase.config";
 
 const CartContainer = () => {
 	const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
 	const [flag, setFlag] = useState(1);
 	const [tot, setTot] = useState(0);
+
+	const firebaseAuth = getAuth(app);
+	const provider = new GoogleAuthProvider();
 
 	const showCart = () => {
 		dispatch({
@@ -27,12 +32,30 @@ const CartContainer = () => {
 	}, [cartItems]);
 
 	const clearCart = () => {
+		cartItems.forEach((item) => {
+			item.qty = 1;
+		});
 		dispatch({
 			type: actionType.SET_CARTITEMS,
 			cartItems: [],
 		});
 
 		localStorage.setItem("cartItems", JSON.stringify([]));
+	};
+
+	const login = async () => {
+		if (!user) {
+			const {
+				user: { refreshToken, providerData },
+			} = await signInWithPopup(firebaseAuth, provider);
+			dispatch({
+				type: actionType.SET_USER,
+				user: providerData[0],
+			});
+			localStorage.setItem("user", JSON.stringify(providerData[0]));
+		} else {
+			setIsMenu(!isMenu);
+		}
 	};
 
 	return (
@@ -79,7 +102,7 @@ const CartContainer = () => {
 					<div className="w-full flex-1 bg-cartTotal rounded-t-[2rem] flex flex-col items-center justify-evenly px-8 py-2">
 						<div className="w-full flex items-center justify-between">
 							<p className="text-gray-400 text-lg">Sub Total</p>
-							<p className="text-gray-400 text-lg">$ {tot}</p>
+							<p className="text-gray-400 text-lg">$ {tot.toFixed(2)}</p>
 						</div>
 						<div className="w-full flex items-center justify-between">
 							<p className="text-gray-400 text-lg">Delivery</p>
@@ -91,7 +114,7 @@ const CartContainer = () => {
 						<div className="w-full flex items-center justify-between">
 							<p className="text-gray-200 text-xl font-semibold">Total</p>
 							<p className="text-gray-200 text-xl font-semibold">
-								${tot + 2.5}
+								${(tot + 2.5).toFixed(2)}
 							</p>
 						</div>
 
@@ -108,6 +131,7 @@ const CartContainer = () => {
 								whileTap={{ scale: 0.8 }}
 								type="button"
 								className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+								onClick={login}
 							>
 								Login to check out
 							</motion.button>

@@ -1,7 +1,10 @@
 import React from "react";
 import Delivery from "../assets/images/delivery-truck.png";
+import { useStateValue } from "../context/StateProvider";
+import CartContainer from "./CartContainer";
 
 const Service = () => {
+	const [{ cartShow }, dispatch] = useStateValue();
 	return (
 		<div>
 			<div className="w-full">
@@ -36,6 +39,7 @@ const Service = () => {
 					<img className="h-370 mb-10" src={Delivery} alt="" />
 				</div>
 			</div>
+			{cartShow && <CartContainer />}
 		</div>
 	);
 };
