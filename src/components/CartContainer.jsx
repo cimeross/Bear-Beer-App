@@ -13,6 +13,7 @@ const CartContainer = () => {
 	const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
 	const [flag, setFlag] = useState(1);
 	const [tot, setTot] = useState(0);
+	const [showAlert, setShowAlert] = useState(false);
 
 	const firebaseAuth = getAuth(app);
 	const provider = new GoogleAuthProvider();
@@ -56,6 +57,10 @@ const CartContainer = () => {
 		} else {
 			setIsMenu(!isMenu);
 		}
+	};
+
+	const handleCheckout = () => {
+		setShowAlert(true);
 	};
 
 	return (
@@ -123,6 +128,7 @@ const CartContainer = () => {
 								whileTap={{ scale: 0.8 }}
 								type="button"
 								className="w-full p-2 rounded-full bg-gradient-to-tr from-orange-400 to-orange-600 text-gray-50 text-lg my-2 hover:shadow-lg"
+								onClick={handleCheckout}
 							>
 								Check Out
 							</motion.button>
@@ -144,6 +150,28 @@ const CartContainer = () => {
 					<p className="text-xl text-textColor font-semibold">
 						Add some items to your cart
 					</p>
+				</div>
+			)}
+			{showAlert && (
+				<div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+					<div className="flex flex-col justify-center items-center bg-gradient-to-tr from-orange-400 to-orange-600 rounded-lg p-8">
+						<p className="text-lg text-headingColor font-semibold mb-4">
+							Successfully purchased!
+						</p>
+						<button
+							className="bg-gray-200  px-4 py-2 rounded-md font-semibold text-headingColor"
+							onClick={() => {
+								clearCart();
+								setShowAlert(false);
+								dispatch({
+									type: actionType.SET_CART_SHOW,
+									cartShow: false,
+								});
+							}}
+						>
+							OK
+						</button>
+					</div>
 				</div>
 			)}
 		</motion.div>
