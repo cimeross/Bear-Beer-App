@@ -52,5 +52,4 @@ const MainContainer = () => {
 		</div>
 	);
 };
-3;
 export default MainContainer;

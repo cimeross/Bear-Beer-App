@@ -19,7 +19,7 @@ const HomeContainer = () => {
 						/>
 					</div>
 				</div>
-				<p className="text-[2.5rem] lg:text-[3.8rem]  leading-normal font-bold tracking-normal text-headingColor">
+				<p className="text-[2.5rem] lg:text-[3.8rem] leading-[1.1]  md:leading-normal font-bold tracking-normal text-headingColor">
 					From the mountains to your door,{" "}
 					<span className="text-textDarkOrange text-[3rem] lg:text-[4.2rem]">
 						Bear Beer{" "}
@@ -54,8 +54,8 @@ const HomeContainer = () => {
 							>
 								<img
 									src={e.image}
-									alt="icecream"
-									className="w-20 xl:w-44 lg:w-32 -mt-10 lg:-mt-30"
+									alt="beer"
+									className="w-28 xl:w-44 lg:w-32 -mt-10 lg:-mt-30"
 								/>
 								<p className="text-base lg:text-xl font-semibold text-headingColor mt-2 lg:mt-4">
 									{e.name}
