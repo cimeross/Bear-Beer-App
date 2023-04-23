@@ -50,14 +50,14 @@ const HomeContainer = () => {
 						beerData.map((e) => (
 							<div
 								key={e.id}
-								className="2xl:w-275 xl:w-220 flex flex-col  items-center justify-center  p-2 bg-cardOverlay backdrop-blur-md rounded-3xl"
+								className="2xl:w-300 xl:w-220 flex flex-col  items-center justify-center  p-2 bg-cardOverlay backdrop-blur-md rounded-3xl"
 							>
 								<img
 									src={e.image}
 									alt="beer"
 									className="w-28 xl:w-44 lg:w-32 -mt-10 lg:-mt-30"
 								/>
-								<p className="text-base lg:text-xl font-semibold text-headingColor mt-2 lg:mt-4">
+								<p className="text-base lg:text-xl 2xl:text-2xl font-semibold text-headingColor mt-2 lg:mt-4">
 									{e.name}
 								</p>
 								<p className="text-[12px] lg:text-sm text-textDarkOrange font-semibold my-1 lg:my-3">
