@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { motion } from "framer-motion";
-import NotFound from "../assets/img/NotFound.svg";
+import NotFound from "../assets/images/NotFound.svg";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 
@@ -41,11 +41,11 @@ const RowContainer = ({ flag, data, scrollValue }) => {
 				data.map((item) => (
 					<div
 						key={item?.id}
-						className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-4  my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
+						className="w-225 h-[175px] min-w-[245px] md:w-300 md:min-w-[300px]  bg-cardOverlay rounded-lg py-2 px-2 md:px-4 my-12 backdrop-blur-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
 					>
-						<div className="w-full flex items-center justify-between">
+						<div className="w-full flex items-center justify-between ">
 							<motion.div
-								className="w-40 h-40 -mt-8 drop-shadow-2xl"
+								className="w-[8rem] h-[8rem] md:w-[10rem] md:h-[10rem] -mt-8 drop-shadow-2xl"
 								whileHover={{ scale: 1.2 }}
 							>
 								<img
@@ -67,9 +67,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
 							<p className="text-textColor font-semibold text-base md:text-lg">
 								{item?.title}
 							</p>
-							<p className="mt-1 text-sm text-gray-500">
-								{item?.calories} Calories
-							</p>
+							<p className="mt-1 text-sm text-gray-500">{item?.alc} Alc</p>
 							<div className="flex items-center gap-8">
 								<p className="text-lg text-headingColor font-semibold">
 									<span className="text-sm text-red-500">$</span> {item?.price}

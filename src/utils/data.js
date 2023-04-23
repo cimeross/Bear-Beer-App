@@ -1,35 +1,35 @@
-import I1 from "../assets/img/i1.png";
-import F1 from "../assets/img/f1.png";
-import C3 from "../assets/img/c3.png";
-import FI1 from "../assets/img/fi1.png";
+import I1 from "../assets/images/carlsberg.png";
+import F1 from "../assets/images/budweiser-d.png";
+import C3 from "../assets/images/amstel.png";
+import FI1 from "../assets/images/bavaria.png";
 
-export const foodData = [
+export const beerData = [
 	{
 		id: 1,
-		name: "Icecream",
-		desc: "Chocolate & Vanilla",
-		price: "5.25",
+		name: "Carlsberg",
+		desc: "Pilsner",
+		price: "1.25",
 		image: I1,
 	},
 	{
 		id: 2,
-		name: "Strawberries",
-		desc: "Fresh Strawberries",
-		price: "10.25",
+		name: "Budweiser",
+		desc: "Dark",
+		price: "1.05",
 		image: F1,
 	},
 	{
 		id: 3,
-		name: "Chicken Kebab",
-		desc: "Mixed Kebab Plate",
-		price: "8.25",
+		name: "Amstel",
+		desc: "Pilsner",
+		price: "0.95",
 		image: C3,
 	},
 	{
 		id: 4,
-		name: "Fish Kebab",
-		desc: "Mixed Fish Kebab",
-		price: "5.25",
+		name: "Bavaria",
+		desc: "Lager",
+		price: "1.20",
 		image: FI1,
 	},
 ];
@@ -37,38 +37,32 @@ export const foodData = [
 export const categories = [
 	{
 		id: 1,
-		name: "Chicken",
-		urlParamName: "chicken",
+		name: "Lager",
+		urlParamName: "lager",
 	},
 	{
 		id: 2,
-		name: "Curry",
-		urlParamName: "curry",
+		name: "Dark",
+		urlParamName: "dark",
 	},
 	{
 		id: 3,
-		name: "Rice",
-		urlParamName: "rice",
+		name: "Wheat",
+		urlParamName: "wheat",
 	},
 	{
 		id: 4,
-		name: "Fish",
-		urlParamName: "fish",
+		name: "Non Alc",
+		urlParamName: "nonAlc",
 	},
 	{
 		id: 5,
-		name: "Fruits",
-		urlParamName: "fruits",
+		name: "Radler",
+		urlParamName: "radler",
 	},
 	{
 		id: 6,
-		name: "Icecreams",
-		urlParamName: "icecreams",
-	},
-
-	{
-		id: 7,
-		name: "Soft Drinks",
-		urlParamName: "drinks",
+		name: "Mugs",
+		urlParamName: "mugs",
 	},
 ];

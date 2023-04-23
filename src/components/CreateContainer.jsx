@@ -16,13 +16,13 @@ import {
 	uploadBytesResumable,
 } from "firebase/storage";
 import { storage } from "../../firebase.config";
-import { saveItem, getAllFoodItems } from "../utils/firebaeFunctions";
+import { saveItem, getAllBeerItems } from "../utils/firebaeFunctions";
 import { actionType } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
 
 const CreateContainer = () => {
 	const [title, setTitle] = useState("");
-	const [calories, setCalories] = useState("");
+	const [alc, setAlc] = useState("");
 	const [price, setPrice] = useState("");
 	const [category, setCategory] = useState(null);
 	const [imageAsset, setImageAsset] = useState(null);
@@ -30,7 +30,7 @@ const CreateContainer = () => {
 	const [alertStatus, setAlertStatus] = useState("danger");
 	const [msg, setMsg] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
-	const [{ foodItems }, dispatch] = useStateValue();
+	const [{ beerItems }, dispatch] = useStateValue();
 
 	const uploadImage = (e) => {
 		setIsLoading(true);
@@ -87,7 +87,7 @@ const CreateContainer = () => {
 	const saveDetails = () => {
 		setIsLoading(true);
 		try {
-			if (!title || !calories || !imageAsset || !price || !category) {
+			if (!title || !alc || !imageAsset || !price || !category) {
 				setFields(true);
 				setMsg("Required fields can't be empty");
 				setAlertStatus("danger");
@@ -101,7 +101,7 @@ const CreateContainer = () => {
 					title: title,
 					imageURL: imageAsset,
 					category: category,
-					calories: calories,
+					alc: alc,
 					qty: 1,
 					price: price,
 				};
@@ -132,16 +132,16 @@ const CreateContainer = () => {
 	const clearData = () => {
 		setTitle("");
 		setImageAsset(null);
-		setCalories("");
+		setAlc("");
 		setPrice("");
 		setCategory("Select Category");
 	};
 
 	const fetchData = async () => {
-		await getAllFoodItems().then((data) => {
+		await getAllBeerItems().then((data) => {
 			dispatch({
-				type: actionType.SET_FOOD_ITEMS,
-				foodItems: data,
+				type: actionType.SET_BEER_ITEMS,
+				beerItems: data,
 			});
 		});
 	};
@@ -244,9 +244,9 @@ const CreateContainer = () => {
 						<input
 							type="text"
 							required
-							value={calories}
-							onChange={(e) => setCalories(e.target.value)}
-							placeholder="Calories"
+							value={alc}
+							onChange={(e) => setAlc(e.target.value)}
+							placeholder="Alc"
 							className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"
 						/>
 					</div>

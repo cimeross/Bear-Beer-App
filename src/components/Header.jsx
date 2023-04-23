@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Logo from "../assets/img/logo.png";
-import Avatar from "../assets/img/avatar.png";
+import LogoBear from "../assets/images/logo-bear.png";
+import Avatar from "../assets/images/avatar.png";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../../firebase.config";
 import { useStateValue } from "../context/StateProvider";
@@ -54,29 +54,43 @@ const Header = () => {
 		<header className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary">
 			{/* Desktop & tablet */}
 			<div className=" hidden md:flex w-full items-center justify-between">
-				<Link to="/" className="flex items-center gap-2">
-					<img src={Logo} className="w-8 object-cover" alt="logo" />
-					<p className="text-headingColor text-xl font-bold ">City</p>
-				</Link>
-				<div className="flex items-center gap-8">
+				<NavLink to="/" className="flex items-center gap-2">
+					<img src={LogoBear} className="w-16 object-cover" alt="logo" />
+					<p className="text-headingColor lg:text-2xl md:text-xl font-bold ">
+						Bear <span className="text-textDarkOrange">Beer</span>
+					</p>
+				</NavLink>
+				<div className="flex items-center lg:gap-8 md:gap-4">
 					<motion.ul
 						initial={{ opacity: 0, x: 200 }}
 						animate={{ opacity: 1, x: 0 }}
 						exit={{ opacity: 0, x: 200 }}
-						className="flex items-center gap-8 "
+						className="flex items-center lg:gap-8  md:gap-6"
 					>
-						<li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-out cursor-pointer">
+						<NavLink
+							to="/home"
+							className="text-base text-headingColor font-medium hover:text-textDarkOrange uppercase duration-100 transition-all ease-out cursor-pointer"
+						>
 							Home
-						</li>
-						<li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-out cursor-pointer">
+						</NavLink>
+						<NavLink
+							to="/menu"
+							className="text-base text-headingColor font-medium hover:text-textDarkOrange uppercase duration-100 transition-all ease-out cursor-pointer"
+						>
 							Menu
-						</li>
-						<li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-out cursor-pointer">
+						</NavLink>
+						<NavLink
+							to="/about"
+							className="text-base text-headingColor font-medium hover:text-textDarkOrange uppercase duration-100 transition-all ease-out cursor-pointer"
+						>
 							About Us
-						</li>
-						<li className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-out cursor-pointer">
+						</NavLink>
+						<NavLink
+							to="/service"
+							className="text-base text-headingColor font-medium hover:text-textDarkOrange uppercase duration-100 transition-all ease-out cursor-pointer"
+						>
 							Service
-						</li>
+						</NavLink>
 					</motion.ul>
 					<div
 						className="relative flex items-center justify-center"
@@ -107,14 +121,14 @@ const Header = () => {
 								className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute  right-0 top-12 "
 							>
 								{user && user.email === "milansuvi@gmail.com" && (
-									<Link to="/createItem">
+									<NavLink to="/createItem">
 										<p
 											className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
 											onClick={() => setIsMenu(false)}
 										>
 											New Item <MdAdd />
 										</p>
-									</Link>
+									</NavLink>
 								)}
 								<p
 									className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
@@ -144,17 +158,16 @@ const Header = () => {
 						</div>
 					)}
 				</div>
-				<Link to="/" className="flex items-center gap-2">
-					<img src={Logo} className="w-8 object-cover" alt="logo" />
-					<p className="text-headingColor text-xl font-bold ">City</p>
-				</Link>
+				<NavLink to="/" className="flex items-center gap-2">
+					<img src={LogoBear} className="w-12 object-cover" alt="logo" />
+				</NavLink>
 
 				<div className="relative">
 					<motion.img
 						whileTap={{ scale: 0.6 }}
 						src={user ? user.photoURL : Avatar}
 						alt="userProfile"
-						className="w-10 min-w-[40px] h-10 min-h-[40px] shadow-xl cursor-pointer rounded-full"
+						className="w-8 min-w-[30px] h-8 min-h-[30px] shadow-xl cursor-pointer rounded-full"
 						onClick={login}
 					/>
 					{isMenu && (
@@ -165,11 +178,11 @@ const Header = () => {
 							className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute  right-0 top-12 "
 						>
 							{user && user.email === "milansuvi@gmail.com" && (
-								<Link to="/createItem">
+								<NavLink to="/createItem">
 									<p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
 										New Item <MdAdd />
 									</p>
-								</Link>
+								</NavLink>
 							)}
 							<ul className="flex flex-col    ">
 								<li

@@ -8,7 +8,7 @@ import MenuContainer from "./MenuContainer";
 import CartContainer from "./CartContainer";
 
 const MainContainer = () => {
-	const [{ foodItems, cartShow }, dispatch] = useStateValue();
+	const [{ beerItems, cartShow }, dispatch] = useStateValue();
 
 	const [scrollValue, setScrollValue] = useState(0);
 
@@ -20,7 +20,7 @@ const MainContainer = () => {
 			<section className="w-full my-6">
 				<div className="w-full flex items-center justify-between">
 					<p className="text-2xl text-headingColor font-semibold capitalize relative before:absolute before:rounded-lg before:content before:w-20 before:h-1 before:-bottom-2 before:left-0 before:bg-gradient-to-tr from-orange-400 to-orange-600 transition-all ease-in-out duration-100">
-						Our fresh & healthy fruits
+						Call of the Wild
 					</p>
 					<div className="hidden md:flex gap-3 items-center">
 						<motion.div
@@ -42,7 +42,7 @@ const MainContainer = () => {
 				<RawContainer
 					scrollValue={scrollValue}
 					flag={true}
-					data={foodItems?.filter((e) => e.category === "fruits")}
+					data={beerItems?.filter((e) => e.category === "dark")}
 				/>
 			</section>
 
@@ -52,5 +52,4 @@ const MainContainer = () => {
 		</div>
 	);
 };
-3;
 export default MainContainer;
